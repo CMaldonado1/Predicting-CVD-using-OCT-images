@@ -1,0 +1,71 @@
+#This is a file to config the parameters
+
+# Seed
+seed: 1
+dir_imgs_data: "/path/data_pretraining/" 
+dir_imgs_left: "/path/data_classification_left/" 
+dir_imgs_right: "/path/data_classification_right/" 
+ids_set: "/path/excel_pretraining/"
+ids_set_class: "/path/excel_classification/"
+
+pretrained_model: "/path-ckpt-pretraining/"
+
+
+sample_sizes: {
+  training: 0.6,
+  validation: 0.3,
+  testing: 0.1
+}
+
+# Model Parameters
+
+optimizer: "adam"
+
+input_dim: 128 224 224
+epochs: 5
+w_bce: 0.5 
+n_classes: 2 
+w_kld : 0.002
+
+network_architecture:  {
+    latent_dim: 128,
+    convolution : {
+       parameters : {
+          kernel_size: 3 3,  # 3,
+          padding: 1 1,   # 1,
+          stride: 2 2,   # 2,
+          channels: 128 256 128 128 64 64, 
+          channels_concat: 32,
+          channels: 10 32 64 32 32,
+          activation_function: relu relu relu relu relu relu relu,
+          channels_class: 1031 1024 1024 1024 1024 512 512 512 512 512 256 256 256 256 128 128 128 64 64 64 64     # 512 1024 512 256 128 64 32,
+          channels_class: 128 # 16 16 16 8 8 8 4 4 4
+
+       }
+    }
+}
+
+
+# Learning Parameters
+
+optimizer: {
+  algorithm: "Adam",
+  batch_size: 16, 
+  parameters: {
+    lr: 0.0001,
+    betas: [0.5, 0.99],
+    weight_decay: 0.000001 
+
+  }
+}
+
+mlflow: {
+  pretraining: {
+    run_name: null,
+    experiment_name: "VAE"
+  },
+  classifier_training: {
+    run_name: null,
+    experiment_name: "VAE + Classifier"
+  }
+ }

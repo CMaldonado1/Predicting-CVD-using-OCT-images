@@ -15,7 +15,8 @@ python oct_main_ml_fc2.py
 
 You can modify the arguments to conduct a hyperparameter search grid.
 
-An example of a bash script to run the hyperparameter script is also included: `hyperparameter_search.sh`.
+An example of a bash script to run the hyperparameter script is also included: `hyperparameter_grid_search.sh`.
+In this bash script provides an example of running 4 jobs in parallel simultaneously for all grid searches; the feasibility of this will depend on the capacity of the HPC you are using.
 In the `jupyter-notebooks/` folder, you'll find the notebooks for the seven classifiers tasks. Make sure to include the Excel files that will contain the Z's and metadata information.
 
 

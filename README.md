@@ -19,5 +19,7 @@ An example of a bash script to run the hyperparameter script is also included: `
 In this bash script provides an example of running 4 jobs in parallel simultaneously for all grid searches; the feasibility of this will depend on the capacity of the HPC you are using.
 In the `jupyter-notebooks/` folder, you'll find the notebooks for the seven classifiers tasks. Make sure to include the Excel files that will contain the Z's and metadata information.
 
+In the jupyter-notebooks are the code of the Random Forest classifiers (the seven specifies in the manuscript)
+
 
 
